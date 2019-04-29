@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}Forum{% endblock %}
+
+{% block content %}
+  <h1>Forum</h1>
+
+{%if logged_in%}
+    <form action='/posted' method="post">
+    <textarea name="message" style="width:100%; height:120px;"></textarea>
+    <br>
+    <input type="submit" value="Post">
+    </form>
+   {% for post in past_posts%}
+   <div class="key" > 
+   <p> {{post["id"]|safe}}  --  {{post["user"]|safe}}  -- {{post["message"]|safe}}</p>
+  
+   <form action='/delete' method="post">
+   <input type="hidden" name="id" value='{{post["_id"]}}'>
+   <button type="submit" class="btn btn-danger">Delete</button>
+   </form>
+   
+  <!-- <button type="button" class="btn btn-info">Comment</button>
+   <button type="button" class="btn btn-success">Edit</button> --></div> 
+   {% endfor%}
+{%else%}
+    <p>
+    You must be logged in to post on the forum.Forum description: this is a posting website that allows users to post information, question, answer, and more!
+    The information will be deleted every night so one may have to repost.User Guidelines: users must be login to see and use the forum.
+    users should only post short paragraph and never Spam.  </p>
+
+{%endif%}
+    
+  
+  
+  
+
+
+
+{% endblock %}

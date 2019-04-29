@@ -1,0 +1,20 @@
+body {
+background-color:#b2cfee;
+}
+
+#content {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+ p {
+   text-align: center;
+   
+}
+
+.key{
+    padding-top: 20px;
+    padding-right: 45px;
+    padding-bottom: 45px;
+    padding-left: 45px;
+    border: 1px solid #4CAF50;
+}
